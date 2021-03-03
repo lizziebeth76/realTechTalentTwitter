@@ -77,6 +77,14 @@ public class User {
     @ManyToMany(mappedBy = "followers")
     private List<User> following;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_follower", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "follower_id"))
+    private List<User> followers;
+
+    @ManyToMany(mappedBy="followers")
+    private List<User> following;
+
     // Use this code if your lombok is not working:
     // public Long getId() {
     // return id;
