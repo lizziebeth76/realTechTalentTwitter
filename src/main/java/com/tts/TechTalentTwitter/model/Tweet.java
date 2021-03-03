@@ -26,7 +26,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -43,9 +42,9 @@ public class Tweet {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
-//    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-//    @JoinTable(name = "tweet_tag", joinColumns = @JoinColumn(name = "tweet_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
-//    private List<Tag> tags;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @JoinTable(name = "tweet_tag", joinColumns = @JoinColumn(name = "tweet_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
+    private List<Tag> tags;
 
     @NotEmpty(message = "Tweet cannot be empty")
     @Length(max = 280, message = "Tweet cannot have more than 280 characters")
@@ -54,50 +53,37 @@ public class Tweet {
     @CreationTimestamp
     private Date createdAt;
 
-    // Use the code below if your lombok is not working:
-    // public Long getId() {
-    // return id;
-    // }
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-    // public User getUser() {
-    // return user;
-    // }
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
 
-    // public void setUser(User user) {
-    // this.user = user;
-    // }
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
-    // public List<Tag> getTags() {
-    // return tags;
-    // }
+    public User getUser() {
+        return user;
+    }
 
-    // public void setTags(List<Tag> tags) {
-    // this.tags = tags;
-    // }
+    public List<Tag> getTags() {
+        return tags;
+    }
 
-    // public String getMessage() {
-    // return message;
-    // }
+    public String getMessage() {
+        return message;
+    }
 
-    // public void setMessage(String message) {
-    // this.message = message;
-    // }
+    public Date getCreatedAt() {
+        return createdAt;
+    }
 
-    // public Date getCreatedAt() {
-    // return createdAt;
-    // }
-
-    // public void setCreatedAt(Date createdAt) {
-    // this.createdAt = createdAt;
-    // }
-
-    // @Override
-    // public String toString() {
-    // return "Tweet [createdAt=" + createdAt + ", id=" + id + ", message=" +
-    // message + ", tags=" + tags
-    // + ", user=" + user + "]";
-    // }
-
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 }
 
 

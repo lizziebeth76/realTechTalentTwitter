@@ -28,7 +28,6 @@ import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
-@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -77,108 +76,85 @@ public class User {
     @ManyToMany(mappedBy = "followers")
     private List<User> following;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "user_follower", joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "follower_id"))
-    private List<User> followers;
+    public String getEmail() {
+        return email;
+    }
 
-    @ManyToMany(mappedBy="followers")
-    private List<User> following;
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-    // Use this code if your lombok is not working:
-    // public Long getId() {
-    // return id;
-    // }
+    public String getUsername() {
+        return username;
+    }
 
-    // public String getEmail() {
-    // return email;
-    // }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-    // public void setEmail(String email) {
-    // this.email = email;
-    // }
+    public String getPassword() {
+        return password;
+    }
 
-    // public String getUsername() {
-    // return username;
-    // }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-    // public void setUsername(String username) {
-    // this.username = username;
-    // }
+    public String getFirstName() {
+        return firstName;
+    }
 
-    // public String getPassword() {
-    // return password;
-    // }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-    // public void setPassword(String password) {
-    // this.password = password;
-    // }
+    public String getLastName() {
+        return lastName;
+    }
 
-    // public String getFirstName() {
-    // return firstName;
-    // }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-    // public void setFirstName(String firstName) {
-    // this.firstName = firstName;
-    // }
+    public int getActive() {
+        return active;
+    }
 
-    // public String getLastName() {
-    // return lastName;
-    // }
+    public void setActive(int active) {
+        this.active = active;
+    }
 
-    // public void setLastName(String lastName) {
-    // this.lastName = lastName;
-    // }
+    public Date getCreatedAt() {
+        return createdAt;
+    }
 
-    // public int getActive() {
-    // return active;
-    // }
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 
-    // public void setActive(int active) {
-    // this.active = active;
-    // }
+    public Set<Role> getRoles() {
+        return roles;
+    }
 
-    // public Date getCreatedAt() {
-    // return createdAt;
-    // }
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
-    // public void setCreatedAt(Date createdAt) {
-    // this.createdAt = createdAt;
-    // }
+    public List<User> getFollowers() {
+        return followers;
+    }
 
-    // public Set<Role> getRoles() {
-    // return roles;
-    // }
+    public void setFollowers(List<User> followers) {
+        this.followers = followers;
+    }
 
-    // public void setRoles(Set<Role> roles) {
-    // this.roles = roles;
-    // }
+    public List<User> getFollowing() {
+        return following;
+    }
 
-    // public List<User> getFollowers() {
-    // return followers;
-    // }
-
-    // public void setFollowers(List<User> followers) {
-    // this.followers = followers;
-    // }
-
-    // public List<User> getFollowing() {
-    // return following;
-    // }
-
-    // public void setFollowing(List<User> following) {
-    // this.following = following;
-    // }
-
-    // @Override
-    // public String toString() {
-    // return "User [active=" + active + ", createdAt=" + createdAt + ", email=" +
-    // email + ", firstName=" + firstName
-    // + ", followers=" + followers + ", following=" + following + ", id=" + id + ",
-    // lastName=" + lastName
-    // + ", password=" + password + ", roles=" + roles + ", username=" + username +
-    // "]";
-    // }
+    public void setFollowing(List<User> following) {
+        this.following = following;
+    }
 }
 
 
