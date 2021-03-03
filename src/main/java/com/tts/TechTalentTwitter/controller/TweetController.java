@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.tts.TechTalentTwitter.model.TweetDisplay;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +28,7 @@ public class TweetController {
 
     @GetMapping(value= {"/tweets", "/"})
     public String getFeed(Model model){
-        List<Tweet> tweets = tweetService.findAll();
+        List<TweetDisplay> tweets = tweetService.findAll();
         model.addAttribute("tweetList", tweets);
         return "feed";
     }
@@ -51,7 +52,7 @@ public class TweetController {
     }
     @GetMapping(value = "/tweets/{tag}")
     public String getTweetsByTag(@PathVariable(value="tag") String tag, Model model) {
-        List<Tweet> tweets = tweetService.findAllWithTag(tag);
+        List<TweetDisplay> tweets = tweetService.findAllWithTag(tag);
         model.addAttribute("tweetList", tweets);
         model.addAttribute("tag", tag);
         return "taggedTweets";
