@@ -20,14 +20,14 @@ public class AuthorizationController {
 
     @GetMapping(value="/login")
     public String login(){
-        return "login";
+        return "login.html";
     }
 
     @GetMapping(value="/signup")
     public String registration(Model model){
         User user = new User();
         model.addAttribute("user", user);
-        return "registration";
+        return "registration.html";
     }
 
     @PostMapping(value = "/signup")
@@ -41,7 +41,7 @@ public class AuthorizationController {
             model.addAttribute("success", "Sign up successful!");
             model.addAttribute("user", new User());
         }
-        return "registration";
+        return "registration.html";
     }
 
 }

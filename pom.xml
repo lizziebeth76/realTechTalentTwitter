@@ -72,16 +72,16 @@
 <!--			<artifactId>thymeleaf-extras-springsecurity4</artifactId>-->
 <!--			<version>3.0.2.RELEASE</version>-->
 <!--		</dependency>-->
-		<dependency>
-			<groupId>org.ocpsoft.prettytime</groupId>
-			<artifactId>prettytime</artifactId>
-			<version>4.0.1.Final</version>
-		</dependency>
 <!--		<dependency>-->
 <!--			<groupId>org.ocpsoft.prettytime</groupId>-->
 <!--			<artifactId>prettytime</artifactId>-->
-<!--			<version>5.0.0.Final</version>-->
+<!--			<version>4.0.1.Final</version>-->
 <!--		</dependency>-->
+		<dependency>
+			<groupId>org.ocpsoft.prettytime</groupId>
+			<artifactId>prettytime</artifactId>
+			<version>5.0.0.Final</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -100,5 +100,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
